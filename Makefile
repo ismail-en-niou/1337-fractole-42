@@ -34,8 +34,7 @@ fract-ol: $(NAME) $(SW)
 	@rm *.a
 	@echo "$(GREEN)Compilation successful!$(RESET)"
 
-%.o: %.c $(INCLUDE_DIR)/ft_printf.h $(INCLUDE_DIR)/push_swap.h
-	echo "$(CYAN)Compiling: $<$(RESET)"
+%.o: %.c $(INCLUDE_DIR)/ft_printf.h $(INCLUDE_DIR)/fract_ol.h
 	@$(CC) $(FLAGS) -c $< -I$(INCLUDE_DIR) -o $@
 
 clean:

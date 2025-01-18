@@ -6,14 +6,20 @@
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
+#define ESC 53
+#define LEFT 123
+#define RIGHT 124
+#define TOP 126
+#define BOTTOM 127
 #define MANDELBROT 0
 #define JULIA 1
 #define BURNING_SHIP 2
+#define PLUS 69
+#define MINUS 78
 
-#define WIDTH 800
-#define HEIGHT 800
+#define WIDTH 550
+#define HEIGHT 550
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 typedef struct s_data {
     void *mlx;
@@ -32,7 +38,19 @@ typedef struct s_data {
     double c_imag;
 } t_data;
 
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 float   ft_atof(const char *str);
+int mandel(double c_real , double c_img , int max_iterat);
+int get_color(int iter, int max_iter);
+void draw_fractal(t_data *data , int max_iter);
+int julia(double z_real, double z_imag, double c_real, double c_imag, int max_iter);
+int mouse_hook(int button, int x, int y, t_data *vars);
+int key_hook_bonnus(int keycode, t_data *vars);
+
+enum {
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+};
 
 
 #endif
