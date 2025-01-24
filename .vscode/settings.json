@@ -3,7 +3,9 @@
         "mlx.h": "c",
         "fract_ol.h": "c",
         "ft_printf.h": "c",
-        "complex": "c"
+        "complex": "c",
+        "stdlib.h": "c",
+        "iterator": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

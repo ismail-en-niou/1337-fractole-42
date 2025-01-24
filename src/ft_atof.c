@@ -6,41 +6,36 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:53:12 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/15 12:53:15 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:38:49 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
 
-float ft_atof(const char *str) {
-    float res = 0.0;
-    float fraction = 0.0;
-    int sign = 1;
-    int i = 0;
-    int divisor = 10;
+double	ft_atof(char *s)
+{
+	int			sign;
+	long long	int_part;
+	double		frac_part;
+	double		power;
 
-    while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)) {
-        i++;
-    }
-    if (str[i] == '-') {
-        sign = -1;
-        i++;
-    } else if (str[i] == '+') {
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9') {
-        res = res * 10 + (str[i] - '0');
-        i++;
-    }
-    if (str[i] == '.') {
-        i++;
-        while (str[i] >= '0' && str[i] <= '9') {
-            fraction += (float)(str[i] - '0') / divisor;
-            divisor *= 10;
-            i++;
-        }
-    }
-
-    return sign * (res + fraction);
+	int_part = 0;
+	frac_part = 0;
+	sign = 1;
+	power = 1;
+	while ((*s >= '\t' && *s <= '\r') || *s == ' ')
+		s++;
+	while (*s == '+' || *s == '-')
+		if (*(s++) == '-')
+			sign *= -1;
+	while (*s >= '0' && *s <= '9')
+		int_part = (int_part * 10) + (*(s++) - '0');
+	if (*s == '.')
+		s++;
+	while (*s >= '0' && *s <= '9')
+	{
+		power /= 10;
+		frac_part = frac_part + (*(s++) - '0') * power;
+	}
+	return ((int_part + frac_part) * sign);
 }
-

@@ -15,7 +15,6 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "$(CYAN)Creating static library: $(NAME) ... $(RESET)"
 	@ar rc $(NAME) $(OBJ)
 	@mv $(NAME) ../
 
@@ -23,11 +22,9 @@ $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	@echo "$(RED)Cleaning the work space ... $(RESET)"
 	@rm -rf *.o $(BONUS_FLAG)
 
 fclean: clean
-	@echo "$(RED)Removing all ... T_T $(RESET)"
 	@rm -f $(NAME)
 
 re: fclean all
