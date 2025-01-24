@@ -1,7 +1,3 @@
-Here's a structured `README.md` file for your `1337-fractole-42` project, explaining both the mathematical and coding aspects.
-
----
-
 # 1337-fractole-42
 
 ## Project Overview
